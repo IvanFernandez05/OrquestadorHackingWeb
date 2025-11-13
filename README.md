@@ -102,9 +102,42 @@ OrquestadorHackingWeb/
     └── reporter.py          # Sistema de reportes
 ```
 
+## Pruebas
+
+El proyecto incluye un servidor de prueba con vulnerabilidades intencionales para demostrar el funcionamiento del orquestador:
+
+### Servidor de Prueba
+
+1. Inicia el servidor de prueba en una terminal:
+```bash
+python test_server.py
+```
+
+2. En otra terminal, ejecuta el orquestador:
+```bash
+# Escanear todos los tipos de vulnerabilidades
+python orchestrator.py -u http://localhost:8080/
+
+# Escanear solo CSRF
+python orchestrator.py -u http://localhost:8080/ -s csrf
+
+# Escanear SQL Injection y XSS
+python orchestrator.py -u http://localhost:8080/ -s sql xss
+```
+
+### Página de Prueba
+
+El archivo `test_vulnerable_page.html` contiene ejemplos de vulnerabilidades comunes:
+- Formularios sin protección CSRF
+- Campos susceptibles a XSS
+- Parámetros vulnerables a SQL Injection
+- Campos para probar Directory Traversal
+
 ## Advertencias
 
 ⚠️ **USO ÉTICO SOLAMENTE**: Estas herramientas están diseñadas exclusivamente para pruebas de seguridad autorizadas en entornos controlados. El uso no autorizado de estas herramientas contra sistemas que no te pertenecen es ilegal.
+
+⚠️ **Servidor de Prueba**: El servidor de prueba (`test_server.py`) contiene vulnerabilidades intencionales. NO exponerlo a internet ni usar en producción.
 
 ## Licencia
 
