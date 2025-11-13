@@ -1,0 +1,12 @@
+{
+  "targets": [
+    {
+      "name": "Example Target",
+      "url": "http://localhost:3000",
+      "enabled": false
+    }
+  ],
+  "timeout": 10,
+  "max_retries": 3,
+  "output_format": "console"
+}
